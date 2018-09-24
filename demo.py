@@ -4,19 +4,18 @@ import os
 # get root execution path
 cwd = os.getcwd()
 
-
-
 # darknet yolo configuration settings
-thresh = 0.6
+thresh = 0.9
 config_path = os.path.join(cwd, "cfg/suit-tiny.test.cfg")
 weight_path = os.path.join(cwd, "cfg/suit-tiny.weights")
 meta_path = os.path.join(cwd, "cfg/suit-tiny.data")
+triplet_matcher_path = os.path.join(cwd, "cfg/triplet_semihard_final.keras")
 
 # video configuration settings
 proto_path = os.path.join(cwd, "assets/videos/neilman/")
 
 # Init video constructor with suit config
-video = VideoStreamer(proto_path, config_path, weight_path, meta_path, thresh)
+video = VideoStreamer(proto_path, config_path, weight_path, meta_path, triplet_matcher_path, thresh)
 video.start()
 apparels = []
 detections = []
